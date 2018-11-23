@@ -2,7 +2,6 @@ import React from 'react'
 import {voting} from '../reducers/anecdoteReducer'
 import {notificationSetting, notificationClearing} from '../reducers/notificationReducer'
 import Filter from './Filter'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 
@@ -10,11 +9,11 @@ import { connect } from 'react-redux'
 class AnecdoteList extends React.Component {
 
   vote = (anecdote) => () => {
-    this.context.store.dispatch(voting(anecdote.id))
-    this.context.store.dispatch(notificationSetting(`you voted "${anecdote.content}"`))
+    this.props.voting(anecdote.id)
+    this.props.notificationSetting(`you voted "${anecdote.content}"`)
 
     setTimeout(() => {
-      this.context.store.dispatch(notificationClearing())
+      this.props.notificationClearing()
     }, 5000) 
   }
 
@@ -42,10 +41,6 @@ class AnecdoteList extends React.Component {
   }
 }
 
-AnecdoteList.contextTypes = {
-  store: PropTypes.object
-}
-
 const anecdotesToShow = (anecdotes, filter) => {
   const filteredAnecdotes = anecdotes.filter((anecdote) => anecdote.content.includes(filter))
   return filteredAnecdotes.sort((a, b) => b.votes - a.votes)
@@ -57,6 +52,13 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps =  {
+  voting,
+  notificationSetting,
+  notificationClearing}
+
+
 export default connect (
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AnecdoteList)
