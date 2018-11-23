@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 class Notification extends React.Component {
   render() {
     const style = {
@@ -10,10 +10,14 @@ class Notification extends React.Component {
 
     return (
       <div style={style}> 
-        {this.props.store.getState().notification}
+        {this.context.store.getState().notification}
       </div>
     )
   }
+}
+
+Notification.contextTypes = {
+  store: PropTypes.object
 }
 
 export default Notification
