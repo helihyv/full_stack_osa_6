@@ -3,6 +3,7 @@ import {voting} from '../reducers/anecdoteReducer'
 import {notificationSetting, notificationClearing} from '../reducers/notificationReducer'
 import Filter from './Filter'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 
 
@@ -18,15 +19,12 @@ class AnecdoteList extends React.Component {
   }
 
   render() {
-    let anecdotes = this.context.store.getState().anecdotes
-    const filterText = this.context.store.getState().filter 
-    anecdotes = anecdotes.filter((anecdote) => anecdote.content.includes(filterText))
 
     return (
       <div>
         <h2>Anecdotes</h2>
         <Filter />
-        {anecdotes.sort((a, b) => b.votes - a.votes).map(anecdote =>
+        {this.props.visibleAnecdotes.map(anecdote =>
           <div key={anecdote.id}>
             <div>
               {anecdote.content}
@@ -48,4 +46,17 @@ AnecdoteList.contextTypes = {
   store: PropTypes.object
 }
 
-export default AnecdoteList
+const anecdotesToShow = (anecdotes, filter) => {
+  const filteredAnecdotes = anecdotes.filter((anecdote) => anecdote.content.includes(filter))
+  return filteredAnecdotes.sort((a, b) => b.votes - a.votes)
+}
+
+const mapStateToProps = (state) => {
+  return {
+    visibleAnecdotes: anecdotesToShow(state.anecdotes, state.filter)
+  }
+}
+
+export default connect (
+  mapStateToProps
+)(AnecdoteList)
