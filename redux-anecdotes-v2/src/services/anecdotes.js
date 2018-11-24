@@ -9,8 +9,13 @@ const getAll = async () => {
 
 const createNew = async (content) => {
   const response = await axios.post(url, {content, votes: 0})
-  console.log('service reached')
   return response.data
 }
 
-export default { getAll, createNew }
+const setVotes = async (anecdoteId, votes) => {
+  const response = await axios.patch(url.concat('/').concat(anecdoteId), {votes}) 
+  return response.data
+  
+} 
+
+export default { getAll, createNew, setVotes }

@@ -3,12 +3,12 @@
     {
       "content": "If it hurts, do it more often",
       "id": "47145",
-      "votes": 0
+      "votes": 2
     },
     {
       "content": "Adding manpower to a late software project makes it later!",
       "id": "21149",
-      "votes": 0
+      "votes": 2
     },
     {
       "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
@@ -18,56 +18,41 @@
     {
       "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
       "id": "36975",
-      "votes": 0
+      "votes": 20
     },
     {
       "content": "Premature optimization is the root of all evil.",
       "id": "25170",
-      "votes": 0
+      "votes": 1
     },
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
       "id": "98312",
-      "votes": 0
+      "votes": 1
     },
     {
       "content": "kissanpentu",
-      "important": false,
-      "id": "fJkZAMK"
-    },
-    {
-      "content": "kissanpentu",
-      "important": false,
-      "id": "eShV33m"
-    },
-    {
-      "content": "kissanpentu",
-      "important": false,
-      "id": "hC1CeFd"
-    },
-    {
-      "content": "kissanpentu",
-      "votes": 0,
+      "votes": 1,
       "id": "gLrltpH"
     },
     {
       "content": "kissanpentu",
-      "votes": 0,
+      "votes": 1,
       "id": "i3cGUZ5"
     },
     {
       "content": "kissanpentu",
-      "votes": 0,
+      "votes": 8,
       "id": "ze_tiK7"
     },
     {
       "content": "kissanpentu",
-      "votes": 0,
+      "votes": 1,
       "id": "hGx8_i6"
     },
     {
       "content": "kissanpentu",
-      "votes": 0,
+      "votes": 1,
       "id": "QFnHKkm"
     },
     {
@@ -77,13 +62,23 @@
     },
     {
       "content": "kissanpentu",
-      "votes": 0,
+      "votes": 9,
       "id": "42Mwl24"
     },
     {
       "content": "koiranpentu",
-      "votes": 0,
+      "votes": 2,
       "id": "teMcwhk"
+    },
+    {
+      "content": "koiranpentu",
+      "votes": 1,
+      "id": "lNVBoUd"
+    },
+    {
+      "content": "kukko",
+      "votes": 2,
+      "id": "_J0cZ_u"
     }
   ]
 }
