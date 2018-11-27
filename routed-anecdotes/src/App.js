@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom'
-import { Container, Table, Grid, Image } from 'semantic-ui-react'
+import { Container, Table, Grid, Image, Form, Message } from 'semantic-ui-react'
 
 const AnecdoteList = ({ anecdotes }) => (
   <div>
@@ -77,24 +77,10 @@ const Notification = ({text}) => {
   }
 
   return (
-    <div style={notificationStyle}>
+    <Message >
       {text}
-    </div>
+    </Message>
   )
-}
-
-const notificationStyle = {
-  color: 'green',
-  borderStyle: 'solid',
-  borderWidth: 2,
-  borderRadius: 8,
-  padding: 5,
-  marginTop: 10,
-  marginLeft: 0,
-  marginRigth: 0,
-  marginBottom: 0
-
-
 }
 
 class CreateNew extends React.Component {
@@ -130,21 +116,21 @@ class CreateNew extends React.Component {
     return(
       <div>
         <h2>create a new anecdote</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            content 
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <label>content </label>
             <input name='content' value={this.state.content} onChange={this.handleChange} />
-          </div>
-          <div>
-            author
+          </Form.Field>
+          <Form.Field>
+          <label>author</label>
             <input name='author' value={this.state.author} onChange={this.handleChange} />
-          </div>
-          <div>
-            url for more info
+          </Form.Field>
+          <Form.Field>
+          <label>url for more info</label> 
             <input name='info' value={this.state.info} onChange={this.handleChange} />
-          </div> 
-          <button>create</button>
-        </form>
+          </Form.Field>
+          <Form.Button>create</Form.Button>
+        </Form>
       </div>  
     )
 
