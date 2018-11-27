@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom'
 
 const AnecdoteList = ({ anecdotes }) => (
   <div>
@@ -199,10 +199,10 @@ class App extends React.Component {
         <h1>Software anecdotes</h1>
           <Router>
             <div>
-              <div>
-                <Link to="/">anecdotes</Link>&nbsp;
-                <Link to="/create">create new</Link>&nbsp;
-                <Link to="/about">about</Link>
+              <div style={menuStyle}>
+                <NavLink to="/" style={menuItemStyle} activeStyle={activeStyle} exact>anecdotes</NavLink>
+                <NavLink to="/create" style={menuItemStyle} activeStyle={activeStyle} exact >create new</NavLink>
+                <NavLink to="/about" style={menuItemStyle} activeStyle={activeStyle} exact >about</NavLink>
               </div>
               <Notification text={this.state.notification} />
               <div>
@@ -219,6 +219,28 @@ class App extends React.Component {
       </div>
     );
   }
+}
+
+const menuStyle = {
+
+  backgroundColor:"PaleTurquoise",
+  paddingTop: 5,
+  paddingBottom: 10,
+
+}
+const activeStyle = {
+  backgroundColor: "LimeGreen",
+  fontStyle: "italic",
+
+}
+
+const menuItemStyle = {
+  paddingLeft: 10,
+  paddingRight: 10,
+  paddingTop: 5,
+  paddingBottom: 10,
+
+
 }
 
 export default App;
