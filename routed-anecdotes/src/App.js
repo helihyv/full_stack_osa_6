@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom'
-import { Container, Table, Grid, Image, Form, Message } from 'semantic-ui-react'
+import { Container, Table, Grid, Image, Form, Message, Menu } from 'semantic-ui-react'
 
 const AnecdoteList = ({ anecdotes }) => (
   <div>
@@ -203,11 +203,17 @@ class App extends React.Component {
         <h1>Software anecdotes</h1>
           <Router>
             <div>
-              <div style={menuStyle}>
-                <NavLink to="/" style={menuItemStyle} activeStyle={activeStyle} exact>anecdotes</NavLink>
-                <NavLink to="/create" style={menuItemStyle} activeStyle={activeStyle} exact >create new</NavLink>
-                <NavLink to="/about" style={menuItemStyle} activeStyle={activeStyle} exact >about</NavLink>
-              </div>
+              <Menu inverted>
+                <Menu.Item >
+                  <NavLink to="/"  activeStyle={activeStyle} exact>Anecdotes</NavLink>
+                </Menu.Item>
+                <Menu.Item >
+                  <NavLink to="/create" activeStyle={activeStyle} exact >Create new</NavLink>
+                </Menu.Item>
+                <Menu.Item >
+                  <NavLink to="/about"  activeStyle={activeStyle} exact >About</NavLink>
+                </Menu.Item>
+              </Menu>
               <Notification text={this.state.notification} />
               <div>
               <Route exact path="/" render={() => <AnecdoteList anecdotes={this.state.anecdotes} />} />
@@ -225,26 +231,13 @@ class App extends React.Component {
   }
 }
 
-const menuStyle = {
 
-  backgroundColor:"PaleTurquoise",
-  paddingTop: 5,
-  paddingBottom: 10,
-
-}
 const activeStyle = {
-  backgroundColor: "LimeGreen",
+  backgroundColor: "Green",
   fontStyle: "italic",
 
-}
-
-const menuItemStyle = {
-  paddingLeft: 10,
-  paddingRight: 10,
-  paddingTop: 5,
-  paddingBottom: 10,
-
 
 }
+
 
 export default App;
